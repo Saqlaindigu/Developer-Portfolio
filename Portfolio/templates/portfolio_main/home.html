@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saqlain Yousuf - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js"></script>
+</head>
+<body class="bg-black text-white">
+    <div id="bg-animation"></div>
+    
+    <div class="relative z-10">
+        <nav class="fixed w-full p-5 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="text-2xl font-bold">SY</div>
+                <div class="space-x-6">
+                    <a href="#home" class="hover:text-purple-500 transition-colors">Home</a>
+                    <a href="#about" class="hover:text-purple-500 transition-colors">About</a>
+                    <a href="#projects" class="hover:text-purple-500 transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-purple-500 transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="min-h-screen">
+            <section id="home" class="h-screen flex items-center justify-center">
+                <div class="text-center space-y-6 max-w-4xl px-4">
+                    <h1 class="text-6xl font-bold mb-4 animate-fade-in">
+                        Saqlain Yousuf
+                    </h1>
+                    
+                    <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text animate-slide-up delay-100">
+                        AI-Powered Software Development Redefined
+                    </h2>
+                    
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed animate-slide-up delay-200 max-w-2xl mx-auto">
+                        I build smarter, faster, and more cost-effective software solutions with the power of AI.
+                    </p>
+                    
+                    <div class="space-x-4 animate-fade-in delay-300">
+                        <a href="#projects" 
+                           class="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50">
+                            View My Work
+                        </a>
+                        <a href="#contact" 
+                           class="border-2 border-purple-600 hover:bg-purple-600 px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Three Cards Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 animate-fade-in delay-500">
+                        <!-- Faster Development Card -->
+                        <div class="flex items-center space-x-4 bg-gray-900 bg-opacity-60 backdrop-filter backdrop-blur-lg p-6 rounded-xl hover:bg-gray-800 transition-all duration-300">
+                            <div class="p-3 bg-purple-600 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-purple-400">Faster Development</h3>
+                                <p class="text-gray-400 text-sm">AI-accelerated coding and automation</p>
+                            </div>
+                        </div>
+
+                        <!-- Cost-Efficient Card -->
+                        <div class="flex items-center space-x-4 bg-gray-900 bg-opacity-60 backdrop-filter backdrop-blur-lg p-6 rounded-xl hover:bg-gray-800 transition-all duration-300">
+                            <div class="p-3 bg-purple-600 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-purple-400">Cost-Efficient</h3>
+                                <p class="text-gray-400 text-sm">Optimized resources and smart solutions</p>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Performance Card -->
+                        <div class="flex items-center space-x-4 bg-gray-900 bg-opacity-60 backdrop-filter backdrop-blur-lg p-6 rounded-xl hover:bg-gray-800 transition-all duration-300">
+                            <div class="p-3 bg-purple-600 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-purple-400">Enhanced Performance</h3>
+                                <p class="text-gray-400 text-sm">AI-optimized code and architecture</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
+                <div class="container mx-auto px-4 max-w-6xl">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <!-- Left Column: Image and Quick Info -->
+                        <div class="space-y-6">
+                            <div class="relative">
+                                <!-- Profile Image Container -->
+                                <div class="rounded-2xl overflow-hidden relative z-10">
+                                    <img src="{% static 'images/profile.jpg' %}" alt="Saqlain Yousuf" 
+                                         class="w-full object-cover rounded-2xl hover:scale-105 transition-transform duration-300">
+                                </div>
+                                <!-- Decorative Background Element -->
+                                <div class="absolute -bottom-4 -right-4 w-full h-full bg-purple-600 rounded-2xl -z-10"></div>
+                            </div>
+                            
+                            <!-- Quick Stats/Info Cards -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gray-800 p-4 rounded-xl">
+                                    <h4 class="text-purple-400 font-bold">Experience</h4>
+                                    <p class="text-gray-300">5+ Years</p>
+                                </div>
+                                <div class="bg-gray-800 p-4 rounded-xl">
+                                    <h4 class="text-purple-400 font-bold">Expertise</h4>
+                                    <p class="text-gray-300">AI Integration</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Content -->
+                        <div class="space-y-6">
+                            <div class="space-y-4">
+                                <h2 class="text-4xl font-bold">
+                                    About Me
+                                    <span class="block text-purple-400">AI Software Developer</span>
+                                </h2>
+                                
+                                <p class="text-gray-300 leading-relaxed">
+                                    With over 5 years of experience in software development, I've witnessed firsthand how AI is 
+                                    revolutionizing the tech landscape. My journey began with traditional software development, 
+                                    but I quickly recognized the transformative potential of AI integration.
+                                </p>
+
+                                <p class="text-gray-300 leading-relaxed">
+                                    My passion lies in bridging the gap between conventional software development and cutting-edge 
+                                    AI technologies. I specialize in creating intelligent solutions that not only meet current needs 
+                                    but anticipate future challenges.
+                                </p>
+
+                                <div class="bg-gray-800 border-l-4 border-purple-500 p-4 rounded-r-xl my-6">
+                                    <p class="text-lg text-purple-300 italic">
+                                        "I save time and costs by integrating AI into software, enhancing its capability and efficiency."
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Skills Section -->
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-purple-400">Core Competencies</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-gray-800 rounded-full text-sm">AI Integration</span>
+                                    <span class="px-4 py-2 bg-gray-800 rounded-full text-sm">Machine Learning</span>
+                                    <span class="px-4 py-2 bg-gray-800 rounded-full text-sm">Full Stack Development</span>
+                                    <span class="px-4 py-2 bg-gray-800 rounded-full text-sm">Python</span>
+                                    <span class="px-4 py-2 bg-gray-800 rounded-full text-sm">Django</span>
+                                    <span class="px-4 py-2 bg-gray-800 rounded-full text-sm">React</span>
+                                </div>
+                            </div>
+
+                            <!-- CTA Buttons -->
+                            <div class="flex gap-4 pt-6">
+                                <a href="{% static 'resume.pdf' %}" 
+                                   class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 inline-flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    Download Resume
+                                </a>
+                                <a href="#contact" 
+                                   class="border-2 border-purple-600 hover:bg-purple-600 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50">
+                                    Let's Talk
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html> 
