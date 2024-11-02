@@ -16,15 +16,31 @@
     animation: slide-up 1s ease-out;
 }
 
-#bg-animation {
+#particles-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
+    pointer-events: none;
 }
 
+/* Optimize for mobile devices */
+@media (max-width: 768px) {
+    #particles-bg canvas {
+        opacity: 0.7; /* Slightly reduce opacity on mobile for better text readability */
+    }
+}
+
+/* Prevent background from affecting scrolling */
 body {
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Ensure content remains clickable */
+.relative {
+    position: relative;
+    z-index: 1;
 } 
