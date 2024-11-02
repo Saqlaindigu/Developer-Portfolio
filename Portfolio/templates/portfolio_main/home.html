@@ -10,8 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/heroicons@2.0.18/24/outline/index.js"></script>
 </head>
-<body class="bg-black text-white">
-    <div id="bg-animation"></div>
+<body class="bg-black text-white overflow-x-hidden">
+    <canvas id="particles-bg" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
     
     <div class="relative z-10">
         <nav class="fixed w-full p-5 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg">
@@ -185,6 +185,7 @@
             </section>
         </main>
     </div>
+    <script src="{% static 'js/background.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html> 
