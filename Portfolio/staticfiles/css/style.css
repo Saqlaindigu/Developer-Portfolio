@@ -14,7 +14,8 @@
 }
 
 .animate-slide-up {
-    animation: slide-up 1s ease-out;
+    animation: slide-up 1s ease-out forwards;
+    opacity: 0;
 }
 
 #particles-bg {
@@ -38,6 +39,7 @@
 body {
     overflow-x: hidden;
     position: relative;
+    background-attachment: fixed;
 }
 
 /* Ensure content remains clickable */
@@ -254,4 +256,1027 @@ img {
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+/* Add or update these styles */
+.profile-photo {
+    width: 350px !important;
+    height: 450px !important;
+    border-radius: 24px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.profile-photo:hover {
+    transform: translateY(-5px);
+}
+
+/* Make the image container sticky for better scrolling experience */
+@media (min-width: 768px) {
+    .sticky {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 300px !important;
+        height: 400px !important;
+        margin: 0 auto;
+    }
+}
+
+/* Adjust the container spacing */
+.mt-16 {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add these styles at the top of your CSS file */
+@media (forced-colors: active) {
+    /* Ensure proper contrast in forced colors mode */
+    * {
+        forced-color-adjust: auto;
+    }
+
+    /* Specific adjustments for elements that need custom handling */
+    .profile-photo {
+        forced-color-adjust: none;
+    }
+
+    /* Adjust buttons and interactive elements */
+    .button, 
+    .nav-link,
+    .card {
+        forced-color-adjust: auto;
+    }
+
+    /* Handle gradients and backgrounds */
+    .bg-gradient-to-r,
+    .bg-gradient-to-br {
+        forced-color-adjust: none;
+    }
+}
+
+/* Remove any instances of -ms-high-contrast-adjust if they exist */
+
+/* Update Content Creator Card styles */
+.content-creator-card {
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(12px);
+    transform-origin: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-creator-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(31, 41, 55, 0.7);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Social Links */
+.social-link {
+    color: white;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Update grid layout styles */
+@media (min-width: 768px) {
+    .grid.md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+}
+
+/* Featured Content Card styles */
+.featured-content-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .featured-content-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Add these new styles */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    background-size: 200% auto;
+    animation: gradient 4s linear infinite;
+}
+
+.stats-card {
+    background-color: rgba(31, 41, 55, 0.3);
+    backdrop-filter: blur(16px);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.stats-card:hover {
+    background-color: rgba(55, 65, 81, 0.4);
+    transform: scale(1.05);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.5), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Update profile photo styles */
+.profile-photo {
+    width: 400px !important;
+    height: 500px !important;
+    border-radius: 24px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    border: 2px solid rgba(139, 92, 246, 0.1);
+}
+
+.profile-photo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 50px rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 320px !important;
+        height: 400px !important;
+        margin: 0 auto;
+    }
+}
+
+/* Add smooth scrolling to the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add glass morphism effect to cards */
+.backdrop-blur-lg {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Add these new styles */
+.featured-card {
+    background-color: rgba(31, 41, 55, 0.3);
+    backdrop-filter: blur(16px);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    transform: translateZ(0);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.1);
+    text-decoration: none;
+}
+
+.featured-card:hover {
+    transform: scale(1.02);
+    background-color: rgba(55, 65, 81, 0.4);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.content-creator-card {
+    border-radius: 0.75rem;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.content-creator-card:hover {
+    transform: translateY(-0.5rem);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.2);
+}
+
+/* Update existing social link styles */
+.social-link {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for content cards to have consistent background */
+.content-creator-card,
+.featured-card,
+.stats-card {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.content-creator-card:hover,
+.featured-card:hover,
+.stats-card:hover {
+    background: rgba(17, 24, 39, 0.8);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Ensure consistent background for nav */
+nav {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+/* Profile photo styles */
+.profile-photo {
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: auto;
+}
+
+/* Animation for gradient text */
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Add these new styles for featured cards */
+.featured-card {
+    background-color: rgba(31, 41, 55, 0.3);
+    backdrop-filter: blur(16px);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    transform: translateZ(0);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.featured-card:hover {
+    transform: scale(1.02) translateZ(0);
+    border-color: rgba(139, 92, 246, 0.3);
+    background-color: rgba(55, 65, 81, 0.4);
+    box-shadow: 0 8px 16px -2px rgba(139, 92, 246, 0.2);
+}
+
+/* Aspect ratio utilities */
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-\[9\/16\] {
+    aspect-ratio: 9 / 16;
+}
+
+/* Hover scale utility */
+.hover\:scale-102:hover {
+    transform: scale(1.02);
+}
+
+/* Thumbnail image styles */
+.featured-card img {
+    transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Play button animations */
+.featured-card .group-hover\:scale-110:hover {
+    transform: scale(1.1);
+}
+
+/* Stats hover effect */
+.featured-card .text-gray-400 {
+    transition: color 0.3s ease;
+}
+
+.featured-card:hover .text-gray-400 {
+    color: rgba(167, 139, 250, 0.8);
+}
+
+/* Add smooth shadow transition */
+.featured-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.1), 0 10px 10px -5px rgba(139, 92, 246, 0.04);
+}
+
+/* Loading state for images */
+.featured-card img.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+/* Video player styles */
+.featured-card video {
+    transition: transform 0.5s ease;
+}
+
+.featured-card:hover video {
+    transform: scale(1.05);
+}
+
+.play-overlay {
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure video controls are hidden by default */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+/* Video preview styles */
+video {
+    background-color: rgba(17, 24, 39, 0.5); /* Dark background while loading */
+}
+
+video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+}
+
+/* Improve loading state visibility */
+.loading-overlay {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+/* Smooth transition for video preview */
+video {
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover video:not([src=""]) {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Video container styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: rgba(17, 24, 39, 0.5);
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 20;
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.play-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Improve close button visibility and positioning */
+.video-container button {
+    z-index: 30;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.video-container button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Featured card specific styles */
+.featured-card {
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.1), 
+                0 10px 10px -5px rgba(139, 92, 246, 0.04);
+}
+
+/* Project Section Styles */
+.project-card {
+    background-color: rgba(17, 24, 39, 0.3);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-0.5rem);
+}
+
+.tech-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    background-color: rgba(91, 33, 182, 0.5);
+    color: rgb(216, 180, 254);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+.project-link {
+    color: rgb(156, 163, 175);
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: rgb(139, 92, 246);
+}
+
+/* Animation classes */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remove duplicate .animate-fade-in class and update the profile photo container styles */
+.profile-container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .profile-container {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+/* Remove conflicting position classes and update the profile photo styles */
+.profile-photo {
+    width: 350px !important;
+    height: 450px !important;
+    border-radius: 24px;
+    object-fit: cover;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Remove duplicate animations and clean up CSS rules */
+/* Remove duplicate @keyframes fade-in */
+/* Remove duplicate .animate-fade-in */
+
+/* Fix the position conflict by using a wrapper */
+.profile-section {
+    position: relative;
+}
+
+.profile-sticky-wrapper {
+    position: sticky;
+    top: 100px;
+    z-index: 1;
+}
+
+.profile-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Profile section positioning fixes */
+.profile-wrapper {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .profile-wrapper {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+.profile-image-container {
+    position: relative;
+    z-index: 1;
+}
+
+.profile-photo {
+    width: 350px !important;
+    height: 450px !important;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Remove any conflicting position classes */
+.relative {
+    position: relative;
+}
+
+.sticky {
+    position: sticky;
+}
+
+/* Update animation classes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-slide-up {
+    animation: slideUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Add delay classes */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+/* Hero section social links */
+.social-link-hero {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.social-link-hero:hover {
+    transform: translateY(-3px);
+}
+
+.social-link-hero svg {
+    transition: all 0.3s ease;
+}
+
+.social-link-hero:hover svg {
+    transform: scale(1.1);
+}
+
+/* Add delay-400 class if not already present */
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+/* Contact Section Styles */
+.social-link-contact {
+    @apply p-3 bg-gray-800/50 rounded-full hover:bg-purple-600/30 transition-all duration-300 text-gray-400 hover:text-white;
+}
+
+/* Form focus styles */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
+}
+
+/* Input and textarea autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Form validation styles */
+input:invalid:focus,
+textarea:invalid:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+}
+
+/* Success message animation */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-message {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+/* Form input and textarea styles */
+.form-input {
+    @apply w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg 
+    focus:ring-2 focus:ring-purple-500 focus:border-transparent 
+    transition-all duration-300 text-white placeholder-gray-500;
+    color: white !important; /* Force text color to be white */
+}
+
+/* Update autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important;
+    caret-color: white !important;
+    color: white !important;
+}
+
+/* Form Styles */
+.form-group {
+    @apply relative mb-6 w-full;
+}
+
+.form-input-field {
+    @apply w-full px-5 py-4 
+           bg-gray-900/50 
+           border border-purple-500/10 
+           rounded-xl
+           text-white text-base 
+           placeholder-gray-400
+           focus:ring-2 focus:ring-purple-500/30 
+           focus:border-purple-500/30 
+           hover:border-purple-500/20
+           transition-all duration-300;
+    background: rgba(17, 24, 39, 0.5) !important;
+    min-height: 45px;
+    backdrop-filter: blur(4px);
+    width: calc(100% - 60px); /* Account for the icon width */
+}
+
+/* Flex container for input groups */
+.flex.items-center.space-x-4,
+.flex.space-x-4 {
+    @apply w-full items-start;
+}
+
+/* Icon container */
+.form-group .p-3 {
+    @apply flex-shrink-0 mt-6; /* Align with input field */
+}
+
+/* Input container */
+.form-group .flex-1 {
+    @apply w-full;
+}
+
+/* Textarea specific styles */
+textarea.form-input-field {
+    @apply resize-none;
+    height: 120px !important; /* Fixed height */
+    min-height: 120px !important;
+    max-height: 120px !important;
+    line-height: 1.5;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Enhanced hover state */
+.form-input-field:hover {
+    @apply bg-gray-900/60;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px -2px rgba(139, 92, 246, 0.1);
+}
+
+/* Enhanced focus state */
+.form-input-field:focus {
+    @apply bg-gray-900/70 outline-none;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px -4px rgba(139, 92, 246, 0.15);
+}
+
+/* Label styles */
+.form-group label {
+    @apply block text-sm font-medium text-gray-400 mb-2;
+}
+
+/* Placeholder styles */
+.form-input-field::placeholder {
+    @apply text-gray-500/70;
+}
+
+.form-input-field:focus::placeholder {
+    @apply text-purple-500/40;
+}
+
+/* Input autofill styles */
+.form-input-field:-webkit-autofill,
+.form-input-field:-webkit-autofill:hover,
+.form-input-field:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(17, 24, 39, 0.7) inset !important;
+    caret-color: rgb(139, 92, 246) !important;
+}
+
+/* Group hover effects */
+.form-group:hover .text-purple-400 {
+    @apply text-purple-300;
+}
+
+/* Focus within styles for the entire group */
+.form-group:focus-within .p-3 {
+    @apply bg-purple-600/40;
+    transform: scale(1.05);
+}
+
+.form-group:focus-within .text-purple-400 {
+    @apply text-purple-300;
+}
+
+/* Custom scrollbar for textarea */
+textarea.form-input-field::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea.form-input-field::-webkit-scrollbar-track {
+    @apply bg-gray-900/30 rounded-r-xl;
+}
+
+textarea.form-input-field::-webkit-scrollbar-thumb {
+    @apply bg-purple-500/30 rounded-full;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+textarea.form-input-field::-webkit-scrollbar-thumb:hover {
+    @apply bg-purple-500/50;
+}
+
+/* Form container spacing */
+.form-container {
+    @apply space-y-6;
+}
+
+/* Error states */
+.form-input-field.error {
+    @apply border-red-500/50 bg-red-500/5;
+}
+
+/* Success states */
+.form-input-field.success {
+    @apply border-green-500/50 bg-green-500/5;
+}
+
+/* Add inner shadow for depth */
+.form-input-field {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve contrast for entered text */
+.form-input-field {
+    @apply font-medium tracking-wide;
+}
+
+/* Message character count */
+.character-count {
+    @apply absolute right-3 bottom-3 text-xs text-gray-500/70;
+}
+
+/* Form spacing adjustments */
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    @apply mt-6;
+}
+
+/* LinkedIn specific styles */
+.linkedin-btn {
+    @apply bg-[#0A66C2] hover:bg-[#004182] text-white transition-all duration-300;
+}
+
+.linkedin-card {
+    @apply relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 rounded-xl overflow-hidden;
+    @apply transition-all duration-500 hover:transform hover:scale-105;
+    @apply border border-gray-800/50 hover:border-[#0A66C2]/30 backdrop-blur-sm;
+}
+
+.linkedin-engagement {
+    @apply flex items-center space-x-1 text-gray-400 text-sm;
+}
+
+.linkedin-engagement svg {
+    @apply w-4 h-4 mr-1;
+}
+
+/* Animation for engagement metrics */
+.engagement-count {
+    @apply transition-all duration-300 hover:text-[#0A66C2];
+}
+
+/* Hover effects for cards */
+.article-card:hover .linkedin-icon {
+    @apply text-[#0A66C2] rotate-6;
+}
+
+/* Reading Progress Bar */
+.reading-progress-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+/* Back to Top Button Animation */
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#back-to-top.visible {
+    animation: fadeInButton 0.3s ease forwards;
+    visibility: visible;
+}
+
+/* Category Button Hover Effect */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #0A66C2, #4F46E5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.category-btn:hover::after {
+    opacity: 0.1;
+}
+
+/* Search Input Enhancement */
+input[type="search"] {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+input[type="search"]:focus {
+    background: rgba(17, 24, 39, 0.9);
+    box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.2);
 }
