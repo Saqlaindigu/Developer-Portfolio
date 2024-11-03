@@ -388,8 +388,8 @@ img {
 }
 
 .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
+    background-size: 200% auto;
+    animation: gradient 4s linear infinite;
 }
 
 .stats-card {
@@ -817,12 +817,12 @@ video {
 
 @keyframes slideUp {
     from {
-        transform: translateY(20px);
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -951,4 +951,27 @@ video {
 
 .delay-500 {
     animation-delay: 500ms;
+}
+
+/* Hero section social links */
+.social-link-hero {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.social-link-hero:hover {
+    transform: translateY(-3px);
+}
+
+.social-link-hero svg {
+    transition: all 0.3s ease;
+}
+
+.social-link-hero:hover svg {
+    transform: scale(1.1);
+}
+
+/* Add delay-400 class if not already present */
+.delay-400 {
+    animation-delay: 400ms;
 }
