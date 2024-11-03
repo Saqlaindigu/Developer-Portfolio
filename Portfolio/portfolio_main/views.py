@@ -28,13 +28,6 @@ def contact(request):
             """
             
             try:
-                # Print debug information
-                print(f"Attempting to send email with settings:")
-                print(f"EMAIL_HOST: {settings.EMAIL_HOST}")
-                print(f"EMAIL_PORT: {settings.EMAIL_PORT}")
-                print(f"EMAIL_USE_TLS: {settings.EMAIL_USE_TLS}")
-                print(f"EMAIL_HOST_USER: {settings.EMAIL_HOST_USER}")
-                
                 send_mail(
                     subject=f"Portfolio Contact: {subject}",
                     message=email_body,
@@ -52,10 +45,40 @@ def contact(request):
             except Exception as e:
                 messages.error(request, f'There was an error sending your message: {str(e)}')
                 logger.error(f"Failed to send email: {str(e)}")
-                print(f"Email error: {str(e)}")  # Debug print
                 
         else:
             messages.error(request, 'Please fill in all fields.')
             logger.warning("Incomplete form submission")
             
     return redirect('home')
+
+def blog_list(request):
+    # Your actual LinkedIn newsletter posts
+    newsletter_posts = [
+        {
+            'title': 'The Coming Quantum Revolution - Why Quantum Computers Will Change Everything',
+            'preview_content': 'Quantum computing represents a fundamentally different approach to computing compared to classical computing. While classical computers encode information in bits with binary values of 0 or 1, quantum computers utilize quantum bits or qubits, which can exist in a superposition of 0 and 1.',
+            'linkedin_url': 'https://www.linkedin.com/pulse/coming-quantum-revolution-why-computers-change-saqlain-yousuf-kyc2c',
+            'reading_time': 8,
+            'created_at': '2024-03-26',
+            'is_featured': True
+        },
+        {
+            'title': 'Why Should You Learn Python in 2024',
+            'preview_content': 'Python remains the dominant AI language despite growing competition. Python\'s popularity for AI/ML development continues rising due to its flexibility, vast ecosystem of libraries, and ease of use.',
+            'linkedin_url': 'https://www.linkedin.com/pulse/why-should-you-learn-python-2024-saqlain-yousuf-asesc',
+            'reading_time': 6,
+            'created_at': '2024-03-27',
+            'is_featured': True
+        }
+        # Add more newsletter posts as you publish them
+    ]
+    
+    featured_posts = [post for post in newsletter_posts if post.get('is_featured', False)]
+    
+    context = {
+        'posts': newsletter_posts,
+        'featured_posts': featured_posts[:3],  # Show top 3 featured posts
+        'newsletter_url': 'https://www.linkedin.com/newsletters/digu-trends-tech-7177762093369106432/'  # URL for "View All" button
+    }
+    return render(request, 'portfolio_main/blog_list.html', context)

@@ -96,4 +96,44 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => message.remove(), 500);
         }, 5000);
     });
+
+    // Reading Progress
+    function updateReadingProgress() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector('.reading-progress-bar').style.width = scrolled + '%';
+    }
+
+    // Back to Top Button
+    function toggleBackToTopButton() {
+        const button = document.getElementById('back-to-top');
+        if (window.scrollY > 500) {
+            button.classList.add('visible');
+        } else {
+            button.classList.remove('visible');
+        }
+    }
+
+    // Event Listeners
+    window.addEventListener('scroll', () => {
+        updateReadingProgress();
+        toggleBackToTopButton();
+    });
+
+    document.getElementById('back-to-top')?.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Category Filter Animation
+    function animateFilteredArticles() {
+        const articles = document.querySelectorAll('.article-card');
+        articles.forEach((article, index) => {
+            article.style.animationDelay = `${index * 0.1}s`;
+            article.classList.add('animate-fade-in');
+        });
+    }
 }); 

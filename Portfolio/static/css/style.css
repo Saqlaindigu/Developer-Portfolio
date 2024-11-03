@@ -1195,3 +1195,88 @@ textarea.form-input-field::-webkit-scrollbar-thumb:hover {
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
     @apply mt-6;
 }
+
+/* LinkedIn specific styles */
+.linkedin-btn {
+    @apply bg-[#0A66C2] hover:bg-[#004182] text-white transition-all duration-300;
+}
+
+.linkedin-card {
+    @apply relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 rounded-xl overflow-hidden;
+    @apply transition-all duration-500 hover:transform hover:scale-105;
+    @apply border border-gray-800/50 hover:border-[#0A66C2]/30 backdrop-blur-sm;
+}
+
+.linkedin-engagement {
+    @apply flex items-center space-x-1 text-gray-400 text-sm;
+}
+
+.linkedin-engagement svg {
+    @apply w-4 h-4 mr-1;
+}
+
+/* Animation for engagement metrics */
+.engagement-count {
+    @apply transition-all duration-300 hover:text-[#0A66C2];
+}
+
+/* Hover effects for cards */
+.article-card:hover .linkedin-icon {
+    @apply text-[#0A66C2] rotate-6;
+}
+
+/* Reading Progress Bar */
+.reading-progress-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+/* Back to Top Button Animation */
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#back-to-top.visible {
+    animation: fadeInButton 0.3s ease forwards;
+    visibility: visible;
+}
+
+/* Category Button Hover Effect */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #0A66C2, #4F46E5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.category-btn:hover::after {
+    opacity: 0.1;
+}
+
+/* Search Input Enhancement */
+input[type="search"] {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+input[type="search"]:focus {
+    background: rgba(17, 24, 39, 0.9);
+    box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.2);
+}
