@@ -975,3 +975,223 @@ video {
 .delay-400 {
     animation-delay: 400ms;
 }
+
+/* Contact Section Styles */
+.social-link-contact {
+    @apply p-3 bg-gray-800/50 rounded-full hover:bg-purple-600/30 transition-all duration-300 text-gray-400 hover:text-white;
+}
+
+/* Form focus styles */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
+}
+
+/* Input and textarea autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Form validation styles */
+input:invalid:focus,
+textarea:invalid:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+}
+
+/* Success message animation */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-message {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+/* Form input and textarea styles */
+.form-input {
+    @apply w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg 
+    focus:ring-2 focus:ring-purple-500 focus:border-transparent 
+    transition-all duration-300 text-white placeholder-gray-500;
+    color: white !important; /* Force text color to be white */
+}
+
+/* Update autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important;
+    caret-color: white !important;
+    color: white !important;
+}
+
+/* Form Styles */
+.form-group {
+    @apply relative mb-6 w-full;
+}
+
+.form-input-field {
+    @apply w-full px-5 py-4 
+           bg-gray-900/50 
+           border border-purple-500/10 
+           rounded-xl
+           text-white text-base 
+           placeholder-gray-400
+           focus:ring-2 focus:ring-purple-500/30 
+           focus:border-purple-500/30 
+           hover:border-purple-500/20
+           transition-all duration-300;
+    background: rgba(17, 24, 39, 0.5) !important;
+    min-height: 45px;
+    backdrop-filter: blur(4px);
+    width: calc(100% - 60px); /* Account for the icon width */
+}
+
+/* Flex container for input groups */
+.flex.items-center.space-x-4,
+.flex.space-x-4 {
+    @apply w-full items-start;
+}
+
+/* Icon container */
+.form-group .p-3 {
+    @apply flex-shrink-0 mt-6; /* Align with input field */
+}
+
+/* Input container */
+.form-group .flex-1 {
+    @apply w-full;
+}
+
+/* Textarea specific styles */
+textarea.form-input-field {
+    @apply resize-none;
+    height: 120px !important; /* Fixed height */
+    min-height: 120px !important;
+    max-height: 120px !important;
+    line-height: 1.5;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Enhanced hover state */
+.form-input-field:hover {
+    @apply bg-gray-900/60;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px -2px rgba(139, 92, 246, 0.1);
+}
+
+/* Enhanced focus state */
+.form-input-field:focus {
+    @apply bg-gray-900/70 outline-none;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px -4px rgba(139, 92, 246, 0.15);
+}
+
+/* Label styles */
+.form-group label {
+    @apply block text-sm font-medium text-gray-400 mb-2;
+}
+
+/* Placeholder styles */
+.form-input-field::placeholder {
+    @apply text-gray-500/70;
+}
+
+.form-input-field:focus::placeholder {
+    @apply text-purple-500/40;
+}
+
+/* Input autofill styles */
+.form-input-field:-webkit-autofill,
+.form-input-field:-webkit-autofill:hover,
+.form-input-field:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(17, 24, 39, 0.7) inset !important;
+    caret-color: rgb(139, 92, 246) !important;
+}
+
+/* Group hover effects */
+.form-group:hover .text-purple-400 {
+    @apply text-purple-300;
+}
+
+/* Focus within styles for the entire group */
+.form-group:focus-within .p-3 {
+    @apply bg-purple-600/40;
+    transform: scale(1.05);
+}
+
+.form-group:focus-within .text-purple-400 {
+    @apply text-purple-300;
+}
+
+/* Custom scrollbar for textarea */
+textarea.form-input-field::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea.form-input-field::-webkit-scrollbar-track {
+    @apply bg-gray-900/30 rounded-r-xl;
+}
+
+textarea.form-input-field::-webkit-scrollbar-thumb {
+    @apply bg-purple-500/30 rounded-full;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+textarea.form-input-field::-webkit-scrollbar-thumb:hover {
+    @apply bg-purple-500/50;
+}
+
+/* Form container spacing */
+.form-container {
+    @apply space-y-6;
+}
+
+/* Error states */
+.form-input-field.error {
+    @apply border-red-500/50 bg-red-500/5;
+}
+
+/* Success states */
+.form-input-field.success {
+    @apply border-green-500/50 bg-green-500/5;
+}
+
+/* Add inner shadow for depth */
+.form-input-field {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve contrast for entered text */
+.form-input-field {
+    @apply font-medium tracking-wide;
+}
+
+/* Message character count */
+.character-count {
+    @apply absolute right-3 bottom-3 text-xs text-gray-500/70;
+}
+
+/* Form spacing adjustments */
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    @apply mt-6;
+}
