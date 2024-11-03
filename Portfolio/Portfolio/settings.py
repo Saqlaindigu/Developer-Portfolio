@@ -36,8 +36,8 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'yourdomain.com',  # Replace with your actual domain
-    'www.yourdomain.com'  # Replace with your actual domain
+    'saqlaindigu.com',  # Replace with your actual domain
+    'www.saqlaindigu.com'  # Replace with your actual domain
 ]
 
 
