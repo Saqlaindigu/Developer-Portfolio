@@ -1,6 +1,6 @@
 @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-up {
@@ -9,7 +9,8 @@
 }
 
 .animate-fade-in {
-    animation: fade-in 1s ease-out;
+    animation: fade-in 1s ease-out forwards;
+    opacity: 0;
 }
 
 .animate-slide-up {
@@ -29,7 +30,7 @@
 /* Optimize for mobile devices */
 @media (max-width: 768px) {
     #particles-bg canvas {
-        opacity: 0.7; /* Slightly reduce opacity on mobile for better text readability */
+        opacity: 0.7;
     }
 }
 
@@ -37,10 +38,678 @@
 body {
     overflow-x: hidden;
     position: relative;
+    background-attachment: fixed;
 }
 
 /* Ensure content remains clickable */
 .relative {
     position: relative;
     z-index: 1;
-} 
+}
+
+/* Perspective property for 3D transforms */
+.perspective {
+    perspective: 1000px;
+}
+
+/* Rotate on Y axis */
+.rotate-y-12 {
+    transform: rotateY(12deg);
+}
+
+/* Skill bar animation */
+@keyframes skillFill {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.animate-skill-fill {
+    animation: skillFill 1.5s ease-out forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Add smooth scrolling to the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .text-5xl {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .text-3xl {
+        font-size: 1.875rem;
+        line-height: 1.3;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .flex.gap-4 {
+        flex-wrap: wrap;
+        gap: 0.5rem !important;
+    }
+    
+    .h-500 {
+        height: 300px;
+    }
+}
+
+/* Add will-change for better animation performance */
+.transform {
+    will-change: transform;
+}
+
+/* Optimize animations */
+.transition-all {
+    transition-property: transform, background-color, box-shadow;
+    will-change: transform, background-color, box-shadow;
+}
+
+/* Add hardware acceleration for smoother animations */
+.hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Add loading state styles */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    #nav-links {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    #nav-links a {
+        padding: 0.75rem;
+        display: block;
+        border-radius: 0.25rem;
+    }
+    
+    #nav-links a:hover {
+        background: rgba(139, 92, 246, 0.1);
+    }
+}
+
+/* Responsive Containers */
+.container {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* Responsive Spacing */
+@media (max-width: 768px) {
+    .section-padding {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .grid-gap {
+        gap: 1rem;
+    }
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Animation Optimizations for Mobile */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-skill-fill {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Add or update these styles */
+.profile-photo {
+    width: 350px !important;
+    height: 450px !important;
+    border-radius: 24px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.profile-photo:hover {
+    transform: translateY(-5px);
+}
+
+/* Make the image container sticky for better scrolling experience */
+@media (min-width: 768px) {
+    .sticky {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 300px !important;
+        height: 400px !important;
+        margin: 0 auto;
+    }
+}
+
+/* Adjust the container spacing */
+.mt-16 {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add these styles at the top of your CSS file */
+@media (forced-colors: active) {
+    /* Ensure proper contrast in forced colors mode */
+    * {
+        forced-color-adjust: auto;
+    }
+
+    /* Specific adjustments for elements that need custom handling */
+    .profile-photo {
+        forced-color-adjust: none;
+    }
+
+    /* Adjust buttons and interactive elements */
+    .button, 
+    .nav-link,
+    .card {
+        forced-color-adjust: auto;
+    }
+
+    /* Handle gradients and backgrounds */
+    .bg-gradient-to-r,
+    .bg-gradient-to-br {
+        forced-color-adjust: none;
+    }
+}
+
+/* Remove any instances of -ms-high-contrast-adjust if they exist */
+
+/* Update Content Creator Card styles */
+.content-creator-card {
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(12px);
+    transform-origin: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-creator-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(31, 41, 55, 0.7);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Social Links */
+.social-link {
+    color: white;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Update grid layout styles */
+@media (min-width: 768px) {
+    .grid.md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+}
+
+/* Featured Content Card styles */
+.featured-content-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .featured-content-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Add these new styles */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+}
+
+.stats-card {
+    @apply bg-gray-800/30 backdrop-blur-lg p-8 rounded-2xl hover:bg-gray-700/40 
+           transition-all duration-300 transform hover:scale-105 relative overflow-hidden
+           border border-purple-500/10 hover:border-purple-500/30;
+}
+
+.stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.5), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Update profile photo styles */
+.profile-photo {
+    width: 400px !important;
+    height: 500px !important;
+    border-radius: 24px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    border: 2px solid rgba(139, 92, 246, 0.1);
+}
+
+.profile-photo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 50px rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 320px !important;
+        height: 400px !important;
+        margin: 0 auto;
+    }
+}
+
+/* Add smooth scrolling to the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add glass morphism effect to cards */
+.backdrop-blur-lg {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Add these new styles */
+.featured-card {
+    @apply bg-gray-800/30 backdrop-blur-lg rounded-xl 
+           transition-all duration-300 transform hover:scale-105 
+           border border-purple-500/10 hover:border-purple-500/30
+           hover:bg-gray-700/40 overflow-hidden;
+}
+
+.content-creator-card {
+    @apply rounded-xl backdrop-blur-lg 
+           transition-all duration-300 transform hover:-translate-y-2
+           border border-purple-500/10 hover:border-purple-500/30
+           overflow-hidden shadow-xl hover:shadow-purple-500/20;
+}
+
+/* Update existing social link styles */
+.social-link {
+    @apply transform transition-all duration-300 hover:-translate-y-1;
+}
+
+.social-link:hover {
+    @apply shadow-lg;
+}
+
+/* Style for content cards to have consistent background */
+.content-creator-card,
+.featured-card,
+.stats-card {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.content-creator-card:hover,
+.featured-card:hover,
+.stats-card:hover {
+    background: rgba(17, 24, 39, 0.8);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Ensure consistent background for nav */
+nav {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+/* Profile photo styles */
+.profile-photo {
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: auto;
+}
+
+/* Animation for gradient text */
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Add these new styles for featured cards */
+.featured-card {
+    @apply bg-gray-800/30 backdrop-blur-lg rounded-xl 
+           transition-all duration-300 transform hover:scale-102
+           border border-purple-500/10 hover:border-purple-500/30
+           hover:bg-gray-700/40 overflow-hidden shadow-lg hover:shadow-purple-500/20;
+    text-decoration: none;
+}
+
+/* Aspect ratio utilities */
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-\[9\/16\] {
+    aspect-ratio: 9 / 16;
+}
+
+/* Hover scale utility */
+.hover\:scale-102:hover {
+    transform: scale(1.02);
+}
+
+/* Thumbnail image styles */
+.featured-card img {
+    transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Play button animations */
+.featured-card .group-hover\:scale-110:hover {
+    transform: scale(1.1);
+}
+
+/* Stats hover effect */
+.featured-card .text-gray-400 {
+    transition: color 0.3s ease;
+}
+
+.featured-card:hover .text-gray-400 {
+    color: rgba(167, 139, 250, 0.8);
+}
+
+/* Add smooth shadow transition */
+.featured-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.1), 0 10px 10px -5px rgba(139, 92, 246, 0.04);
+}
+
+/* Loading state for images */
+.featured-card img.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+/* Video player styles */
+.featured-card video {
+    transition: transform 0.5s ease;
+}
+
+.featured-card:hover video {
+    transform: scale(1.05);
+}
+
+.play-overlay {
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure video controls are hidden by default */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+/* Video preview styles */
+video {
+    background-color: rgba(17, 24, 39, 0.5); /* Dark background while loading */
+}
+
+video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+}
+
+/* Improve loading state visibility */
+.loading-overlay {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+/* Smooth transition for video preview */
+video {
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover video:not([src=""]) {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Video container styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: rgba(17, 24, 39, 0.5);
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 20;
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.play-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Improve close button visibility and positioning */
+.video-container button {
+    z-index: 30;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.video-container button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Featured card specific styles */
+.featured-card {
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.1), 
+                0 10px 10px -5px rgba(139, 92, 246, 0.04);
+}
