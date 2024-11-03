@@ -209,6 +209,6 @@ LOGGING = {
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
-    'https://yourdomain.com',  # Replace with your actual domain
-    'https://www.yourdomain.com'  # Replace with your actual domain
+    'https://saqlaindigu.com',  # Replace with your actual domain
+    'https://www.saqlaindigu.com'  # Replace with your actual domain
 ]
