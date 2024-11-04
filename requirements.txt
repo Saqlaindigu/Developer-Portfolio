@@ -1,5 +1,5 @@
-Django
-mysqlclient
-python-dotenv
-gunicorn
-whitenoise 
+Django==5.1.2
+mysqlclient==2.2.5
+python-dotenv==1.0.1
+gunicorn==23.0.0
+whitenoise==6.8.2 

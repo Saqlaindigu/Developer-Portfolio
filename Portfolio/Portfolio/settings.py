@@ -37,7 +37,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'saqlaindigu.com',  # Replace with your actual domain
-    'www.saqlaindigu.com'  # Replace with your actual domain
+    'www.saqlaindigu.com',  # Replace with your actual domain
+    '.onrender.com',  # Allow all Render subdomains
 ]
 
 
@@ -165,7 +166,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Security Settings
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = not DEBUG
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Session Settings
@@ -210,5 +211,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'https://saqlaindigu.com',  # Replace with your actual domain
-    'https://www.saqlaindigu.com'  # Replace with your actual domain
+    'https://www.saqlaindigu.com',  # Replace with your actual domain
+    'https://*.onrender.com',  # Allow all Render subdomains
 ]
