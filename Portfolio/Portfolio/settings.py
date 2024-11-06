@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os, include
 from dotenv import load_dotenv
+import dj_database_url
 
 # Load environment variables
 load_dotenv()
@@ -38,7 +39,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'saqlaindigu.com',  # Replace with your actual domain
     'www.saqlaindigu.com',  # Replace with your actual domain
-    '.onrender.com',  # Allow all Render subdomains
+    '.railway.app',  # Allow all Railway subdomains
+    '*',  # Temporarily allow all hosts during initial deployment
 ]
 
 
@@ -90,18 +92,11 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '3306'),
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        }
-    }
+    'default': dj_database_url.config(
+        default='mysql://root:root@localhost:3306/portfolio',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
@@ -213,4 +208,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://saqlaindigu.com',  # Replace with your actual domain
     'https://www.saqlaindigu.com',  # Replace with your actual domain
     'https://*.onrender.com',  # Allow all Render subdomains
+    'https://*.railway.app',  # Allow all Railway subdomains
 ]

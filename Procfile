@@ -1,0 +1,1 @@
+web: cd Portfolio && gunicorn Portfolio.wsgi:application 

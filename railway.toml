@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+buildCommand = "./build.sh"
+
+[deploy]
+startCommand = "cd Portfolio && gunicorn Portfolio.wsgi:application"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on-failure"
+
+[deploy.envs]
+PYTHON_VERSION = "3.11.10"
+PORT = "8000"

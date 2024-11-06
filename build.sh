@@ -1,8 +1,19 @@
-#!/usr/bin/env bash
-# exit on error
-set -o errexit
+#!/bin/bash
 
+# Make the script executable
+chmod +x build.sh
+
+# Install Python dependencies
 pip install -r requirements.txt
 
-python manage.py collectstatic --no-input
-python manage.py migrate 
+# Change to the correct directory
+cd Portfolio
+
+# Run database migrations
+python manage.py migrate --noinput
+
+# Collect static files
+python manage.py collectstatic --noinput
+
+# Create superuser if needed (optional)
+# python manage.py createsuperuser --noinput
