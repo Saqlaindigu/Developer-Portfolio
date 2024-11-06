@@ -1,1 +1,1 @@
-web: cd Portfolio && gunicorn Portfolio.wsgi:application --bind 0.0.0.0:$PORT 
+web: gunicorn --chdir Portfolio Portfolio.wsgi:application --bind 0.0.0.0:$PORT

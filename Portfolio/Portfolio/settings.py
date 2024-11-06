@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='mysql://root:root@localhost:3306/portfolio',
+        default='postgresql://postgres:postgres@localhost:5432/portfolio',
         conn_max_age=600,
         conn_health_checks=True,
     )

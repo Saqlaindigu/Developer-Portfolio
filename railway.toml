@@ -3,7 +3,7 @@ builder = "nixpacks"
 buildCommand = "./build.sh"
 
 [deploy]
-startCommand = "cd Portfolio && gunicorn Portfolio.wsgi:application --bind 0.0.0.0:$PORT"
+startCommand = "gunicorn --chdir Portfolio Portfolio.wsgi:application --bind 0.0.0.0:$PORT"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 
